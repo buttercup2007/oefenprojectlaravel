@@ -12,8 +12,8 @@
 </head>
 <body class="min-h-screen flex flex-col bg-base-200 font-sans">
 <nav class="navbar bg-base-100">
-<div class="navbar-start">
-<a href="/" class="btn btn-ghost text-xl">🐦 Chirperfdfvdf</a>
+<div class="navbar-start">php artisan make:controller ChirpController
+<a href="/" class="btn btn-ghost text-xl">🐦 Chirper</a>
 </div>
 <div class="navbar-end gap-2">
 <a href="#" class="btn btn-ghost btn-sm">Sign In</a>
