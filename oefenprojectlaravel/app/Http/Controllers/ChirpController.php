@@ -7,6 +7,32 @@ use Illuminate\Http\Request;
 
 class ChirpController extends Controller
 {
+
+public function edit(Chirp $chirp)
+{
+    // We'll add authorization in lesson 11
+    return view('chirps.edit', compact('chirp'));
+}
+
+public function update(Request $request, Chirp $chirp)
+{
+    // Validate
+    $validated = $request->validate([
+        'message' => 'required|string|max:255',
+    ]);
+
+    // Update
+    $chirp->update($validated);
+
+    return redirect('/')->with('success', 'Chirp updated!');
+}
+
+public function destroy(Chirp $chirp)
+{
+    $chirp->delete();
+
+    return redirect('/')->with('success', 'Chirp deleted!');
+}
     public function index()
     {
         $chirps = Chirp::with('user')
@@ -19,6 +45,8 @@ class ChirpController extends Controller
 
    public function store(Request $request)
 {
+
+
 // Validate the request
 $validated = $request->validate([
 'message' => 'required|string|max:255',
@@ -32,3 +60,4 @@ Chirp::create([
     // Redirect back to the feed
 return redirect('/')->with('success', 'Chirp created!'); 
 }}
+
