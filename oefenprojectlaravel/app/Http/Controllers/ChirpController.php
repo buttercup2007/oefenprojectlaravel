@@ -17,12 +17,11 @@ public function edit(Chirp $chirp)
 public function update(Request $request, Chirp $chirp)
 {
     // Validate
-    $validated = $request->validate([
-        'message' => 'required|string|max:255',
-    ]);
+    
+   if (  $this->authorize('update', $chirp)) {
+    }
 
     // Update
-    $chirp->update($validated);
 
     return redirect('/')->with('success', 'Chirp updated!');
 }
