@@ -37,12 +37,12 @@ class ChirpPolicy
      */
 public function update(User $user, Chirp $chirp): bool
 {
-    return $chirp->user()->is($user);
+    return $chirp->user && $chirp->user()->is($user);
 }
 
 public function delete(User $user, Chirp $chirp): bool
 {
-    return $chirp->user()->is($user);
+    return $chirp->user && $chirp->user()->is($user);
 }
     /**
      * Determine whether the user can restore the model.

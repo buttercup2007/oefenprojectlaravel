@@ -19,6 +19,9 @@ Route::view('/login', 'auth.login')
     ->middleware('guest')
     ->name('login');
 
+Route::post('/login', Login::class)
+    ->middleware('guest');
+
 Route::post('/logout', function (Request $request) {
     Auth::logout();
     $request->session()->invalidate();
