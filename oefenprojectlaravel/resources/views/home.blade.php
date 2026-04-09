@@ -5,6 +5,7 @@
 <div class="max-w-2xl mx-auto">
     <h1 class="text-3xl font-bold mt-8">Latest Chirps</h1>
 
+    @auth
     <div class="card bg-base-100 shadow mt-8">
         <div class="card-body">
             <form method="POST" action="/chirps">
@@ -28,6 +29,7 @@
             </form>
         </div>
     </div>
+    @endauth
 
     <div class="space-y-4 mt-8">
         @forelse ($chirps as $chirp)
