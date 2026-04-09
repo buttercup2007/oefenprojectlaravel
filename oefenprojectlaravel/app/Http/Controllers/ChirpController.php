@@ -17,9 +17,6 @@ public function edit(Chirp $chirp)
 public function update(Request $request, Chirp $chirp)
 {
     // Authorization
-    if ($request->user()->cannot('update', $chirp)) {
-        abort(403);
-    }
 
     // Validate
     $validated = $request->validate([
